@@ -1,37 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="dist/css/main.css">
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
-
-  Score
-  Rules
-
-  You Picked
-  The House Picked
-
-  You Win
-  You Lose
-
-  Play Again
-
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
+  <header class="header">
+    <div class="header__logo"><img src="images/logo.svg" alt=""></div>
+    <div class="header__score">
+      <p>Score</p>
+      <p class="header__score__table">12</p>
+    </div>
+    <div></div>
+  </header>
+  <main>
+    <div class="select">
+      <div class="select__hand"><span class="select__hand--vertical-align"></span><img src="images/icon-paper.svg" alt="Paper option"></div>
+      <section class="select__section">
+        <h3>YOU WIN</h3>
+        <button>Play Again</button>
+      </section>
+      <div class="select__hand"><span class="select__hand--vertical-align"></span><img src="images/icon-scissors.svg" alt="Scissors option"></div>
+      <div class="select__hand"><span class="select__hand--vertical-align"></span>
+        <img src="images/icon-rock.svg" alt="Rock option"></div>
+    </div>
+    <aside>
+      <div>
+        <h3>Rules</h3>
+        <button>X</button>
+      </div>
+    </aside>
+    <div>
+      <button>Rules</button>
+    </div>
+  </main>
+  <div class="div"><img src="images/bg-triangle.svg" alt=""></div>
+  <div class="div"><img src="images/image-rules.svg" alt=""></div>
+  <div class="div"><img src="images/logo.svg" alt=""></div>
 
-
-  
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+
 </html>

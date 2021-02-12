@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;1,700&display=swap");
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -9,9 +11,11 @@
 body {
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   font-family: "Barlow Semi Condensed", sans-serif;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1f3756), to(#141539));
-  background-image: linear-gradient(#1f3756, #141539);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #1f3756), to(#141539));
+  background-image: linear-gradient(to bottom, #1f3756 30%, #141539 100%);
+  color: #3b4363;
 }
 
 .header {
@@ -28,7 +32,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: .19rem solid #ffffff54;
+  border: 0.19rem solid #606e85;
   border-radius: .25rem;
 }
 
@@ -68,13 +72,60 @@ body {
   line-height: .75;
 }
 
+.select {
+  position: relative;
+  background: url(../images/bg-triangle.svg) no-repeat center center;
+  max-width: 20rem;
+  min-height: 20rem;
+  margin: 7.5rem auto 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .select__hand {
-  width: 9.5rem;
-  height: 9.5rem;
+  width: 9rem;
+  height: 9rem;
   background-color: #e4e4e4;
-  border: 1rem solid blue;
-  border-radius: 50%;
   text-align: center;
+  border-radius: 50%;
+}
+
+.select__hand__paper {
+  position: absolute;
+  left: -5%;
+  top: -3rem;
+  border: 1rem solid #5671f5;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
+}
+
+.select__hand__scissors {
+  position: absolute;
+  right: -4.5%;
+  top: -3rem;
+  border: 1rem solid #eca922;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
+}
+
+.select__hand__rock {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 5.2rem;
+  border: 1rem solid #dd405d;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
 }
 
 .select__hand--vertical-align {
@@ -89,5 +140,115 @@ body {
 
 .select__section {
   display: none;
+}
+
+.rules {
+  background-color: #ffffff;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 3rem 1rem;
+  background-image: url(../images/image-rules.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.rules--flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.rules__title {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.rules__btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  opacity: .75;
+  cursor: pointer;
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.rules--display {
+  display: block;
+}
+
+.open-rules {
+  text-align: center;
+}
+
+.open-rules__btn {
+  padding: .75rem 2.25rem;
+  background-color: transparent;
+  color: #e4e4e4;
+  border: .1rem solid #e4e4e4;
+  text-transform: uppercase;
+  border-radius: .5rem;
+  letter-spacing: .15rem;
+  cursor: pointer;
+}
+
+.battleground .select {
+  background-image: none;
+}
+
+.battleground .select__hand__rock {
+  display: none;
+}
+
+.battleground .select__hand__scissors {
+  visibility: hidden;
+}
+
+.battleground .select__hand__scissors::after {
+  content: "";
+  background-color: #1a2946;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  visibility: visible;
+}
+
+.battleground .select__section {
+  display: block;
+}
+
+.battleground .select__section__title {
+  font-size: 3.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.battleground .select__section__btn {
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: #ffffff;
+  color: #606e85;
+  min-width: 13rem;
+  border: none;
 }
 /*# sourceMappingURL=main.css.map */

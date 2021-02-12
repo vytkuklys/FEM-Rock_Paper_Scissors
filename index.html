@@ -14,52 +14,58 @@
     .attribution {
       font-size: 11px;
       text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-
+    
     .attribution a {
       color: hsl(228, 45%, 44%);
+  
     }
   </style>
 </head>
 
 <body>
   <header class="header">
-    <div class="header__logo"><img src="images/logo.svg" alt=""></div>
+    <div class="header__logo"><img src="dist/images/logo.svg" alt=""></div>
     <div class="header__score">
       <p>Score</p>
       <p class="header__score__table">12</p>
     </div>
     <div></div>
   </header>
-  <main>
+  <main class="battleground">
     <div class="select">
-      <div class="select__hand"><span class="select__hand--vertical-align"></span><img src="images/icon-paper.svg" alt="Paper option"></div>
+      <div class="select__hand select__hand__paper"><span class="select__hand--vertical-align"></span><img src="dist/images/icon-paper.svg" alt="Paper option"></div>
       <section class="select__section">
-        <h3>YOU WIN</h3>
-        <button>Play Again</button>
+        <h3 class="select__section__title">YOU WIN</h3>
+        <button class="select__section__btn">Play Again</button>
       </section>
-      <div class="select__hand"><span class="select__hand--vertical-align"></span><img src="images/icon-scissors.svg" alt="Scissors option"></div>
-      <div class="select__hand"><span class="select__hand--vertical-align"></span>
-        <img src="images/icon-rock.svg" alt="Rock option"></div>
+      <div class="select__hand select__hand__scissors"><span class="select__hand--vertical-align"></span><img src="dist/images/icon-scissors.svg" alt="Scissors option"></div>
+      <div class="select__hand select__hand__rock"><span class="select__hand--vertical-align"></span>
+        <img src="dist/images/icon-rock.svg" alt="Rock option"></div>
     </div>
-    <aside>
-      <div>
-        <h3>Rules</h3>
-        <button>X</button>
+    <aside class="rules">
+      <div class="rules--flex">
+        <h3 class="rules__title">Rules</h3>
+        <button class="rules__btn">X</button>
       </div>
     </aside>
-    <div>
-      <button>Rules</button>
+    <div class="open-rules">
+      <button class="open-rules__btn">Rules</button>
     </div>
   </main>
-  <div class="div"><img src="images/bg-triangle.svg" alt=""></div>
-  <div class="div"><img src="images/image-rules.svg" alt=""></div>
-  <div class="div"><img src="images/logo.svg" alt=""></div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">vytkuklys</a>.
   </div>
+  <script src="main.js"></script>
 </body>
 
 </html>

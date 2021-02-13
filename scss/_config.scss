@@ -1,13 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;1,700&display=swap');
 
+//-----variables
 $Bg-gradient: linear-gradient(to bottom, hsl(214, 47%, 23%) 30%, hsl(237, 49%, 15%) 100%);
-// $Scissors-gradient: linear-gradient(hsl(39, 89%, 49%),hsl(40, 84%, 53%));
-// $Paper-gradient: linear-gradient(to bottom, hsl(230, 89%, 62%) 0%,hsl(230, 89%, 65%) 100%);
-// $Rock-gradient: linear-gradient(hsl(349, 71%, 52%),hsl(349, 70%, 56%));
 $Dark-text: hsl(229, 25%, 31%);
 $Score-text: hsl(229, 64%, 46%);
 $Header-outline: hsl(217, 16%, 45%);
 $Font-main: 'Barlow Semi Condensed', sans-serif;
+
+//-----mixins
+
+@mixin shapeImage($img){
+    background-image: url($img);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mixin chosenShape($border-color, $outset-color, $img){
+    display: block;
+    border: 1rem solid $border-color;
+    box-shadow: inset 0 .3rem #ccc7c7, 0px .4rem $outset-color;
+    background-image: url($img);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 @mixin media-s{
     @media screen and (min-width: 600px){

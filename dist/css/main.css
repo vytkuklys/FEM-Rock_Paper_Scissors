@@ -99,47 +99,58 @@ body {
   background-color: #e4e4e4;
   text-align: center;
   border-radius: 50%;
+  outline-color: transparent;
+  position: absolute;
+  cursor: pointer;
 }
 
 .select__hand__paper {
-  position: absolute;
   left: -5%;
   top: -3rem;
   border: 1rem solid #5671f5;
   -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
           box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
+  background-image: url("../images/icon-paper.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .select__hand__scissors {
-  position: absolute;
   right: -4.5%;
   top: -3rem;
   border: 1rem solid #eca922;
   -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
           box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
+  background-image: url("../images/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+.select__hand--shadow {
+  position: absolute;
+  right: .1rem;
+  top: -2rem;
+  background-color: #192744;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
 }
 
 .select__hand__rock {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 5.2rem;
+  bottom: 1.55rem;
+  right: 5.55rem;
   border: 1rem solid #dd405d;
   -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
           box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
-}
-
-.select__hand--vertical-align {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
-.select__hand img {
-  vertical-align: middle;
+  background-image: url("../images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .select__section {
-  display: none;
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 
 .rules {
@@ -148,7 +159,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 10;
   width: 100%;
   padding: 3rem 1rem;
   background-image: url(../images/image-rules.svg);
@@ -174,8 +185,8 @@ body {
 
 .rules__title {
   text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.25rem;
+  font-weight: 700;
 }
 
 .rules__btn {
@@ -200,6 +211,7 @@ body {
   padding: .75rem 2.25rem;
   background-color: transparent;
   color: #e4e4e4;
+  font-weight: 600;
   border: .1rem solid #e4e4e4;
   text-transform: uppercase;
   border-radius: .5rem;
@@ -207,48 +219,111 @@ body {
   cursor: pointer;
 }
 
+.open-rules__btn:hover {
+  color: #2a46c0;
+}
+
 .battleground .select {
   background-image: none;
 }
 
-.battleground .select__hand__rock {
+.battleground .select__hand {
   display: none;
 }
 
-.battleground .select__hand__scissors {
-  visibility: hidden;
+.battleground .select__hand__paper.chosen-rock {
+  display: block;
+  border: 1rem solid #dd405d;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
+  background-image: url("../images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  left: -5%;
+  top: -3rem;
 }
 
-.battleground .select__hand__scissors::after {
-  content: "";
-  background-color: #1a2946;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  left: 0;
-  top: 0;
-  border-radius: 50%;
-  visibility: visible;
+.battleground .select__hand__paper.chosen-scissors {
+  display: block;
+  border: 1rem solid #eca922;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #dc9104;
+  background-image: url("../images/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  left: -5%;
+  top: -3rem;
 }
 
-.battleground .select__section {
+.battleground .select__hand__paper.chosen-paper {
   display: block;
 }
 
-.battleground .select__section__title {
+.battleground .select__hand__scissors.chosen-rock {
+  display: block;
+  border: 1rem solid #dd405d;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #be1e3b;
+  background-image: url("../images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  right: -4.5%;
+  top: -3rem;
+  background-color: #e4e4e4;
+}
+
+.battleground .select__hand__scissors.chosen-paper {
+  display: block;
+  border: 1rem solid #5671f5;
+  -webkit-box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
+          box-shadow: inset 0 0.3rem #ccc7c7, 0px 0.4rem #314ee3;
+  background-image: url("../images/icon-paper.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 4;
+  right: -4.5%;
+  top: -3rem;
+  background-color: #e4e4e4;
+}
+
+.battleground .select__hand__scissors.chosen-scissors {
+  display: block;
+}
+
+.results .select__section {
+  -webkit-transition: -webkit-transform .75s ease;
+  transition: -webkit-transform .75s ease;
+  transition: transform .75s ease;
+  transition: transform .75s ease, -webkit-transform .75s ease;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.results .select__section__title {
   font-size: 3.5rem;
   color: #ffffff;
   text-align: center;
   margin-bottom: 5%;
+  text-transform: uppercase;
 }
 
-.battleground .select__section__btn {
+.results .select__section__btn {
   padding: 1rem;
   border-radius: .5rem;
   background-color: #ffffff;
   color: #606e85;
   min-width: 13rem;
   border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.results .select__section__btn:hover {
+  color: #2a46c0;
 }
 /*# sourceMappingURL=main.css.map */

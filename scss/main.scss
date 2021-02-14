@@ -94,11 +94,22 @@ body {
             border: 1rem solid hsl(40, 84%, 53%);
             box-shadow: inset 0 .3rem #ccc7c7, 0px .4rem hsl(39, 96%, 44%);
             @include shapeImage('../images/icon-scissors.svg');
+            z-index: 1;
+        }
+        &--shadow{
+            position: absolute;
+            right: .1rem;
+            top: -2rem;
+            // background-color: red;
+            background-color: #192744;
+            width: 7rem;
+            height: 7rem;
+            border-radius: 50%;
         }
 
         &__rock {
-            bottom: 1.5rem;
-            right: 5.2rem;
+            bottom: 1.55rem;
+            right: 5.55rem;
             border: 1rem solid hsl(349, 70%, 56%);
             box-shadow: inset 0 .3rem #ccc7c7, 0px .4rem hsl(349, 73%, 43%);
             @include shapeImage('../images/icon-rock.svg');
@@ -106,7 +117,7 @@ body {
     }
 
     &__section {
-        display: none;
+        transform: scale(0);
     }
 }
 
@@ -116,14 +127,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
     padding: 3rem 1rem;
     background-image: url(../images/image-rules.svg);
     background-position: center;
     background-repeat: no-repeat;
     display: none;
-
     &--flex{
         display: flex;
         justify-content: space-between;
@@ -175,62 +185,8 @@ body {
 .battleground .select{
     background-image: none;
 }
-
-// .battleground .select__hand__rock{
-//     display: none;
-// }
-// .battleground .select__hand__paper{
-//     display: none;
-// }
-.battleground .select__hand__scissors{
-    display: none;
-}
 .battleground .select__hand{
     display: none;
-}
-// .battleground .select__hand__scissors::after{
-//     content: "";
-//     background-color: #1a2946;
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     z-index: 2;
-//     left: 0;
-//     top: 0;
-//     border-radius: 50%;
-//     visibility: visible;
-// }
-
-.battleground .select__section{
-    display: block;
-
-    // position: absolute;
-    // bottom: 1.5rem;
-    // right: 5.2rem;
-
-    &__title{
-        font-size: 3.5rem;
-        color: #ffffff;
-        text-align: center;
-        margin-bottom: 5%;
-    }
-
-    &__btn{
-        padding: 1rem;
-        border-radius: .5rem;
-        background-color: #ffffff;
-        color: $Header-outline;
-        min-width: 13rem;
-        border: none;
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        cursor: pointer;
-
-        &:hover{
-            color: $Score-text;
-        }
-    }
 }
 
 .battleground .select__hand__paper.chosen-rock{
@@ -253,14 +209,50 @@ body {
     @include chosenShape(hsl(349, 70%, 56%), hsl(349, 73%, 43%), '../images/icon-rock.svg');
     right: -4.5%;
     top: -3rem;
+    background-color: #e4e4e4;
+
+    
 }
 
 .battleground .select__hand__scissors.chosen-paper{
     @include chosenShape(hsl(230, 89%, 65%), hsl(230, 76%, 54%), '../images/icon-paper.svg');
     right: -4.5%;
     top: -3rem;
+    background-color: #e4e4e4;
+
 }
 
 .battleground .select__hand__scissors.chosen-scissors{
     display: block;
+}
+
+
+.results .select__section{
+    transition: transform .75s ease;
+    transform: scale(1);
+
+    &__title{
+        font-size: 3.5rem;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 5%;
+        text-transform: uppercase;
+    }
+
+    &__btn{
+        padding: 1rem;
+        border-radius: .5rem;
+        background-color: #ffffff;
+        color: $Header-outline;
+        min-width: 13rem;
+        border: none;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        &:hover{
+            color: $Score-text;
+        }
+    }
 }

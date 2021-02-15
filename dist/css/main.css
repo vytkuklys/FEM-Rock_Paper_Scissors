@@ -1,4 +1,246 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;1,700&display=swap");
+@media screen and (min-width: 450px) {
+  main .rules {
+    height: 25rem;
+    max-width: 25rem;
+    border-radius: .5rem;
+    padding: 1.25rem 1.5rem;
+    background-position: 50% 70%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  main .rules--flex {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: initial;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    height: initial;
+  }
+  main .rules__btn {
+    margin: initial;
+    margin-top: 2.5%;
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main .open-rules {
+    text-align: right;
+    color: green;
+    margin: 5% 2rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main .select {
+    margin: 8.5rem auto 1.5rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .select__hand {
+    width: 10rem;
+    height: 10rem;
+    background-size: 42.5%;
+  }
+  main .select__hand__paper {
+    left: -10%;
+    top: -3.5rem;
+  }
+  main .select__hand__scissors {
+    right: -10%;
+    top: -3.5rem;
+  }
+  main .select__hand__rock {
+    bottom: 1.75rem;
+    right: 5.25rem;
+  }
+  body .battleground .select {
+    margin-top: 10rem;
+  }
+  body .battleground .select--animation {
+    border-radius: 2px;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    -webkit-animation: ripple 1.5s 2 ease-out;
+            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+  body .battleground .select--animation:before {
+    border-radius: 2px;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    -webkit-animation: ripple 1.5s 2 ease-out;
+            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-delay: .25s;
+            animation-delay: .25s;
+  }
+  body .battleground .select--animation:after {
+    border-radius: 2px;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    -webkit-animation: ripple 1.5s 2 ease-out;
+            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-delay: .5s;
+            animation-delay: .5s;
+  }
+  body .battleground .select__hand {
+    width: 16rem;
+    height: 16rem;
+    border-width: 1.5rem;
+    top: 3.25rem;
+    -webkit-transition: -webkit-transform .75s ease-out;
+    transition: -webkit-transform .75s ease-out;
+    transition: transform .75s ease-out;
+    transition: transform .75s ease-out, -webkit-transform .75s ease-out;
+  }
+  body .battleground .select__hand__paper.chosen-rock {
+    left: -41%;
+    top: 3.25rem;
+    border-width: 1.5rem;
+  }
+  body .battleground .select__hand__paper.chosen-scissors {
+    left: -41%;
+    top: 3.25rem;
+    border-width: 1.5rem;
+  }
+  body .battleground .select__hand__paper.chosen-paper {
+    display: block;
+    left: -41%;
+  }
+  body .battleground .select__hand__scissors.chosen-rock {
+    left: 62.5%;
+    top: 3.25rem;
+    border-width: 1.5rem;
+  }
+  body .battleground .select__hand__scissors.chosen-paper {
+    left: 62.5%;
+    top: 3.25rem;
+    border-width: 1.5rem;
+  }
+  body .battleground .select__hand__scissors.chosen-scissors {
+    display: block;
+    left: 62.5%;
+  }
+  body .battleground .select__hand--shadow {
+    left: 70%;
+    top: 4.75rem;
+    width: 13rem;
+    height: 13rem;
+  }
+  html .results .select__win {
+    z-index: -1;
+    top: 11.25rem;
+    left: -10.25rem;
+    display: block;
+  }
+  @-webkit-keyframes ripple {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+              box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+    }
+    15% {
+      -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+              box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+              box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+    }
+  }
+  @keyframes ripple {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+              box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+    }
+    15% {
+      -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+              box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+              box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+    }
+  }
+  html .results .select__lose {
+    z-index: -1;
+    top: 11.25rem;
+    left: 30.5rem;
+    display: block;
+  }
+  @keyframes ripple {
+    0% {
+      -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+              box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+    }
+    15% {
+      -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+              box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+    }
+    100% {
+      -webkit-box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+              box-shadow: 0 0 0 22.5rem rgba(219, 216, 216, 0.048), 0 0 0 22.5rem transparent;
+    }
+  }
+  html .results .select__hand__paper.chosen-rock {
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  html .results .select__hand__paper.chosen-scissors {
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  html .results .select__hand__paper.chosen-paper {
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  html .results .select__hand__scissors.chosen-rock {
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  html .results .select__hand__scissors.chosen-paper {
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  html .results .select__hand__scissors.chosen-scissors {
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  html .results .select__hand--shadow {
+    display: none;
+  }
+  html .results .select__section {
+    -webkit-transition: -webkit-transform 1s ease;
+    transition: -webkit-transform 1s ease;
+    transition: transform 1s ease;
+    transition: transform 1s ease, -webkit-transform 1s ease;
+  }
+}
+
+:root {
+  --g: 8rem;
+}
+
 *,
 *::after,
 *::before {
@@ -19,10 +261,9 @@ body {
 }
 
 .header {
-  min-width: 250px;
-  width: 85%;
-  padding: .5rem;
-  margin: 2.25rem auto;
+  width: clamp(15rem, 85vw, 37.5rem);
+  padding: .5rem .75em;
+  margin: 2.25rem auto 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,7 +278,7 @@ body {
 }
 
 .header__logo {
-  padding: .75rem;
+  padding: .75rem .75rem .75rem 0;
 }
 
 .header__logo img {
@@ -45,14 +286,15 @@ body {
 }
 
 .header__score {
-  min-height: 6.25rem;
-  min-width: 6.75rem;
+  min-height: 6rem;
+  min-width: 7.25rem;
   background-color: #ffffff;
   border-radius: .25rem;
   padding-top: .75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-left: auto;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -175,18 +417,19 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  text-align: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .rules__title {
   text-transform: uppercase;
   font-size: 2.25rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .rules__btn {
@@ -194,9 +437,19 @@ body {
   border: none;
   font-size: 1.5rem;
   opacity: .75;
-  cursor: pointer;
   width: 2rem;
   margin: 0 auto;
+  -webkit-transition: -webkit-transform .35s ease-out;
+  transition: -webkit-transform .35s ease-out;
+  transition: transform .35s ease-out;
+  transition: transform .35s ease-out, -webkit-transform .35s ease-out;
+  opacity: .5;
+  cursor: pointer;
+}
+
+.rules__btn:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .rules--display {
@@ -205,6 +458,7 @@ body {
 
 .open-rules {
   text-align: center;
+  max-width: 87.5rem;
 }
 
 .open-rules__btn {
@@ -212,7 +466,7 @@ body {
   background-color: transparent;
   color: #e4e4e4;
   font-weight: 600;
-  border: .1rem solid #e4e4e4;
+  border: .125rem solid #e4e4e4a4;
   text-transform: uppercase;
   border-radius: .5rem;
   letter-spacing: .15rem;
@@ -225,6 +479,56 @@ body {
 
 .battleground .select {
   background-image: none;
+}
+
+.battleground .select--animation {
+  border-radius: 2px;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  -webkit-animation: rip 1.25s 2 ease-out;
+          animation: rip 1.25s 2 ease-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  display: none;
+}
+
+.battleground .select--animation:before {
+  content: '';
+  border-radius: 2px;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  -webkit-animation: rip 1.25s 2 ease-out;
+          animation: rip 1.25s 2 ease-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: .25s;
+          animation-delay: .25s;
+  top: 0;
+  left: 0;
+}
+
+.battleground .select--animation:after {
+  content: '';
+  border-radius: 2px;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  -webkit-animation: rip 1.25s 2 ease-out;
+          animation: rip 1.25s 2 ease-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  top: 0;
+  left: 0;
 }
 
 .battleground .select__hand {
@@ -291,6 +595,65 @@ body {
 
 .battleground .select__hand__scissors.chosen-scissors {
   display: block;
+}
+
+.results .select__win {
+  z-index: -1;
+  top: 1.55rem;
+  left: 3.375rem;
+  display: block;
+}
+
+@-webkit-keyframes rip {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+  }
+  15% {
+    -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+            box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+            box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+  }
+}
+
+@keyframes rip {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+  }
+  15% {
+    -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+            box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+            box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+  }
+}
+
+.results .select__lose {
+  z-index: -1;
+  top: 1.55rem;
+  left: 16.25rem;
+  display: block;
+}
+
+@keyframes rip {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+            box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent;
+  }
+  15% {
+    -webkit-box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+            box-shadow: 0 0 0 2.5rem rgba(219, 216, 216, 0.144), 0 0 0 2.5rem transparent;
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+            box-shadow: 0 0 0 8.5rem rgba(219, 216, 216, 0.048), 0 0 0 8.5rem transparent;
+  }
 }
 
 .results .select__section {

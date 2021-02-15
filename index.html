@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="dist/images/favicon-32x32.png">
   <link rel="stylesheet" href="dist/css/main.css">
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -35,12 +35,13 @@
     <div class="header__logo"><img src="dist/images/logo.svg" alt=""></div>
     <div class="header__score">
       <p>Score</p>
-      <p class="header__score__table">12</p>
+      <p class="header__score__table">0</p>
     </div>
     <div></div>
   </header>
   <main>
     <div class="select">
+      <span class="select--animation"></span>
       <div class="select__hand select__hand__paper" onfocus="blur()">
       </div>
       <section class="select__section">
@@ -49,12 +50,13 @@
       </section>
       <button class="select__hand select__hand__scissors" onfocus="blur()">
       </button>
+      <div class="select__hand--shadow"></div>
       <button class="select__hand select__hand__rock" onfocus="blur()">
     </div>
     <aside class="rules">
       <div class="rules--flex">
         <h3 class="rules__title">Rules</h3>
-        <button class="rules__btn">X</button>
+        <button class="rules__btn">x</button>
       </div>
     </aside>
     <div class="open-rules">
@@ -65,6 +67,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">vytkuklys</a>.
   </div>
+
   <script src="main.js"></script>
 </body>
 

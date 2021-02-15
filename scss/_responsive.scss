@@ -1,0 +1,185 @@
+@include media-s {
+    main .rules {
+        height: 25rem;
+        max-width: 25rem;
+        border-radius: .5rem;
+        padding: 1.25rem 1.5rem;
+        background-position: 50% 70%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &--flex {
+            flex-direction: row;
+            margin: initial;
+            align-items: flex-start;
+            height: initial;
+        }
+
+        &__btn {
+            margin: initial;
+            margin-top: 2.5%;
+            margin-left: auto;
+        }
+    }
+}
+
+@include media-md {
+    main .open-rules {
+        text-align: right;
+        color: green;
+        margin: 5% 2rem 0 0;
+    }
+}
+
+@include media-lg {
+    main .select {
+        margin: 8.5rem auto 1.5rem;
+        justify-content: center;
+
+        &__hand {
+            width: 10rem;
+            height: 10rem;
+            background-size: 42.5%;
+
+            &__paper {
+                left: -10%;
+                top: -3.5rem;
+            }
+
+            &__scissors {
+                right: -10%;
+                top: -3.5rem;
+            }
+
+            &__rock {
+                bottom: 1.75rem;
+                right: 5.25rem;
+            }
+        }
+    }
+    
+    body .battleground .select {
+        margin-top: 10rem;
+
+        &--animation {
+            @include commonAnimationStyles(ripple, 1.5s);
+    
+            &:before {
+                @include commonAnimationStyles(ripple, 1.5s);
+                animation-delay: .25s;
+
+            }
+    
+            &:after {
+                @include commonAnimationStyles(ripple, 1.5s);
+                animation-delay: .5s;
+            }
+        }
+
+        &__hand {
+            width: 16rem;
+            height: 16rem;
+            border-width: 1.5rem;
+            top: 3.25rem;
+            transition: transform .75s ease-out;
+            // .chosen stylings below are used for the placement of user choices
+            &__paper.chosen-rock {
+                left: -41%;
+                top: 3.25rem;
+                border-width: 1.5rem;
+                // transform: translateX(-15rem);
+            }
+
+            &__paper.chosen-scissors {
+                left: -41%;
+                top: 3.25rem;
+                border-width: 1.5rem;
+            }
+
+            &__paper.chosen-paper {
+                display: block;
+                left: -41%;
+            }
+
+            // .chosen stylings below are used for the placement of randomly computed choices (enemy)
+
+            &__scissors.chosen-rock {
+                left: 62.5%;
+                top: 3.25rem;
+                border-width: 1.5rem;
+
+            }
+
+            &__scissors.chosen-paper {
+                left: 62.5%;
+                top: 3.25rem;
+                border-width: 1.5rem;
+
+            }
+
+            &__scissors.chosen-scissors {
+                display: block;
+                left: 62.5%;
+            }
+            &--shadow {
+                left: 70%;
+                top: 4.75rem;
+                width: 13rem;
+                height: 13rem;
+            }
+        }
+    }
+    html .results .select{
+        &__win {
+            @include winnerAnimations($top: 11.25rem, $left: -10.25rem);
+            display: block;
+        }
+    
+        &__lose {
+            @include winnerAnimations($top: 11.25rem, $left: 30.5rem);
+            display: block;
+        }
+        &__hand{
+            &__paper.chosen-rock {
+                transform: translateX(-10rem);
+
+            }
+
+            &__paper.chosen-scissors {
+                transform: translateX(-10rem);
+
+            }
+
+            &__paper.chosen-paper {
+                transform: translateX(-10rem);
+
+            }
+
+            // .chosen stylings below are used for the placement of randomly computed choices (enemy)
+
+            &__scissors.chosen-rock {
+                transform: translateX(10rem);
+
+
+            }
+
+            &__scissors.chosen-paper {
+                transform: translateX(10rem);
+
+
+            }
+
+            &__scissors.chosen-scissors {
+                transform: translateX(10rem);
+
+            }
+            &--shadow {
+                display: none;
+            }
+        }
+        &__section{
+            transition: transform 1s ease;
+        }
+    }
+}

@@ -1,5 +1,9 @@
 @import '_config.scss';
+@import '_responsive.scss';
 
+:root{
+    --g: 8rem;
+}
 *,
 *::after,
 *::before {
@@ -18,10 +22,11 @@ body {
 }
 
 .header {
-    min-width: 250px;
-    width: 85%;
-    padding: .5rem;
-    margin: 2.25rem auto;
+    // min-width: 15rem;
+    // max-width: 15rem;
+    width: clamp(15rem, 85vw, 37.5rem);
+    padding: .5rem .75em;
+    margin: 2.25rem auto 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +34,7 @@ body {
     border-radius: .25rem;
 
     &__logo {
-        padding: .75rem;
+        padding: .75rem .75rem .75rem 0;
 
         img {
             width: 80%;
@@ -37,12 +42,13 @@ body {
     }
 
     &__score {
-        min-height: 6.25rem;
-        min-width: 6.75rem;
+        min-height: 6rem;
+        min-width: 7.25rem;
         background-color: #ffffff;
         border-radius: .25rem;
         padding-top: .75rem;
         display: flex;
+        margin-left: auto;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
@@ -96,7 +102,8 @@ body {
             @include shapeImage('../images/icon-scissors.svg');
             z-index: 1;
         }
-        &--shadow{
+
+        &--shadow {
             position: absolute;
             right: .1rem;
             top: -2rem;
@@ -121,7 +128,7 @@ body {
     }
 }
 
-.rules{
+.rules {
     background-color: #ffffff;
     height: 100vh;
     position: absolute;
@@ -134,125 +141,172 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     display: none;
-    &--flex{
+
+    &--flex {
         display: flex;
         justify-content: space-between;
-        text-align: center;
         flex-direction: column;
         height: 100%;
+        width: 100%;
     }
-    &__title{
+
+    &__title {
         text-transform: uppercase;
         font-size: 2.25rem;
         font-weight: 700;
+        text-align: center;
+        // width: 10rem;
     }
-    &__btn{
+
+    &__btn {
         background-color: transparent;
         border: none;
         font-size: 1.5rem;
         opacity: .75;
-        cursor: pointer;
         width: 2rem;
         margin: 0 auto;
-
+        transition: transform .35s ease-out;
+        opacity: .5;
+        cursor: pointer;
         //add rotateX
+
+        &:hover {
+            transform: rotate(180deg);
+
+        }
     }
 
 }
-.rules--display{
+
+.rules--display {
     display: block;
 }
-.open-rules{
-    text-align: center;
 
-    &__btn{
+.open-rules {
+    text-align: center;
+    max-width: 87.5rem;
+
+    &__btn {
         padding: .75rem 2.25rem;
         background-color: transparent;
         color: #e4e4e4;
         font-weight: 600;
-        border: .1rem solid #e4e4e4;
+        border: .125rem solid #e4e4e4a4;
         text-transform: uppercase;
         border-radius: .5rem;
         letter-spacing: .15rem;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             color: $Score-text;
         }
     }
 }
 
-.battleground .select{
+.battleground .select {
     background-image: none;
-}
-.battleground .select__hand{
-    display: none;
-}
 
-.battleground .select__hand__paper.chosen-rock{
-    @include chosenShape(hsl(349, 70%, 56%), hsl(349, 73%, 43%), '../images/icon-rock.svg');
-    left: -5%;
-    top: -3rem;
-}
+    &--animation {
+        @include commonAnimationStyles(rip, 1.25s);
+        display: none;
 
-.battleground .select__hand__paper.chosen-scissors{
-    @include chosenShape(hsl(40, 84%, 53%), hsl(39, 96%, 44%), '../images/icon-scissors.svg');
-    left: -5%;
-    top: -3rem;
-}
+        &:before {
+            content: '';
+            @include commonAnimationStyles(rip, 1.25s);
+            animation-delay: .25s;
+            top: 0;
+            left: 0;
+        }
 
-.battleground .select__hand__paper.chosen-paper{
-    display: block;
-}
-
-.battleground .select__hand__scissors.chosen-rock{
-    @include chosenShape(hsl(349, 70%, 56%), hsl(349, 73%, 43%), '../images/icon-rock.svg');
-    right: -4.5%;
-    top: -3rem;
-    background-color: #e4e4e4;
-
-    
-}
-
-.battleground .select__hand__scissors.chosen-paper{
-    @include chosenShape(hsl(230, 89%, 65%), hsl(230, 76%, 54%), '../images/icon-paper.svg');
-    right: -4.5%;
-    top: -3rem;
-    background-color: #e4e4e4;
-
-}
-
-.battleground .select__hand__scissors.chosen-scissors{
-    display: block;
-}
-
-
-.results .select__section{
-    transition: transform .75s ease;
-    transform: scale(1);
-
-    &__title{
-        font-size: 3.5rem;
-        color: #ffffff;
-        text-align: center;
-        margin-bottom: 5%;
-        text-transform: uppercase;
+        &:after {
+            content: '';
+            @include commonAnimationStyles(rip, 1.25s);
+            animation-delay: .5s;
+            top: 0;
+            left: 0;
+        }
     }
 
-    &__btn{
-        padding: 1rem;
-        border-radius: .5rem;
-        background-color: #ffffff;
-        color: $Header-outline;
-        min-width: 13rem;
-        border: none;
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        cursor: pointer;
+    &__hand {
+        display: none;
+        // .chosen stylings below are used for the placement of user choices
+        &__paper.chosen-rock {
+            @include chosenShape(hsl(349, 70%, 56%), hsl(349, 73%, 43%), '../images/icon-rock.svg');
+            left: -5%;
+            top: -3rem;
+        }
 
-        &:hover{
-            color: $Score-text;
+        &__paper.chosen-scissors {
+            @include chosenShape(hsl(40, 84%, 53%), hsl(39, 96%, 44%), '../images/icon-scissors.svg');
+            left: -5%;
+            top: -3rem;
+        }
+
+        &__paper.chosen-paper {
+            display: block;
+        }
+
+        // .chosen stylings below are used for the placement of randomly computed choices (enemy)
+
+        &__scissors.chosen-rock {
+            @include chosenShape(hsl(349, 70%, 56%), hsl(349, 73%, 43%), '../images/icon-rock.svg');
+            right: -4.5%;
+            top: -3rem;
+            background-color: #e4e4e4;
+        }
+
+        &__scissors.chosen-paper {
+            @include chosenShape(hsl(230, 89%, 65%), hsl(230, 76%, 54%), '../images/icon-paper.svg');
+            right: -4.5%;
+            top: -3rem;
+            background-color: #e4e4e4;
+
+        }
+
+        &__scissors.chosen-scissors {
+            display: block;
+        }
+    }
+}
+
+.results .select {
+    &__win {
+        @include winnerAnimation($top: 1.55rem, $left: 3.375rem);
+        display: block;
+    }
+
+    &__lose {
+        @include winnerAnimation($top: 1.55rem, $left: 16.25rem);
+        display: block;
+    }
+
+    &__section {
+        transition: transform .75s ease;
+        transform: scale(1);
+
+        &__title {
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 5%;
+            text-transform: uppercase;
+        }
+
+        &__btn {
+            padding: 1rem;
+            border-radius: .5rem;
+            background-color: #ffffff;
+            color: $Header-outline;
+            min-width: 13rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover {
+                color: $Score-text;
+            }
         }
     }
 }

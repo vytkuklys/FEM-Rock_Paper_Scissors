@@ -22,11 +22,61 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
     background-image: url($img);
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 4;
+}
+@mixin commonAnimationStyles($name, $duration){
+    border-radius: 2px;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    animation: $name $duration 2 ease-out;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
 }
 
+@mixin winnerAnimation($top, $left){
+    z-index: -1;
+    top: $top;
+    left: $left;
+    @keyframes rip{
+        0%  {
+            box-shadow:0 0 0 0 transparent,
+                       0 0 0 0 transparent;
+          }
+          15%  {
+            box-shadow:0 0 0 2.5rem rgba(219, 216, 216, 0.144),
+                    0 0 0 2.5rem transparent;
+          }
+          100% {
+            box-shadow:0 0 0 8.5rem rgba(219, 216, 216, 0.048),
+                       0 0 0 8.5rem transparent;          
+          }
+    }
+    
+}
+@mixin winnerAnimations($top, $left){
+    z-index: -1;
+    top: $top;
+    left: $left;
+
+    @keyframes ripple{
+        0%  {
+            box-shadow:0 0 0 0 transparent,
+                       0 0 0 0 transparent;
+          }
+          15%  {
+            box-shadow:0 0 0 2.5rem rgba(219, 216, 216, 0.144),
+                    0 0 0 2.5rem transparent;
+          }
+          100% {
+            box-shadow:0 0 0 22.5rem rgba(219, 216, 216, 0.048),
+                       0 0 0 22.5rem transparent;          
+          }
+    }
+}
 
 @mixin media-s{
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 450px){
         @content;
     }
 }
@@ -41,3 +91,4 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
         @content;
     }
 }
+

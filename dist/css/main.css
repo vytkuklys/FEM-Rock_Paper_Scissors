@@ -47,7 +47,7 @@
     padding-top: .35rem;
   }
   main .select {
-    margin: 10rem auto 1.5rem;
+    margin: 9rem auto 3.5rem;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -79,7 +79,7 @@
             box-shadow: inset 0 0.45rem #ccc7c7, 0px 0.45rem #be1e3b;
   }
   main .open-rules {
-    width: 87.5rem;
+    width: 90rem;
     left: 50%;
     -webkit-transform: initial;
             transform: initial;
@@ -87,10 +87,7 @@
     padding-right: 15%;
   }
   main .open-rules .attribution {
-    left: -0;
-  }
-  body .battleground .select {
-    margin-top: 9%;
+    left: 0;
   }
   body .battleground .select--animation {
     border-radius: 2px;
@@ -289,6 +286,17 @@
   }
 }
 
+@media screen and (min-width: 1024px) and (min-height: 824px) {
+  main .select {
+    margin: 10.5% auto 3.5rem;
+  }
+  body .open-rules {
+    position: absolute;
+    bottom: 1.5%;
+    margin-top: initial;
+  }
+}
+
 *,
 *::after,
 *::before {
@@ -299,12 +307,11 @@
 }
 
 body {
-  width: 100%;
   height: 100%;
   min-height: 100vh;
+  width: 100vw;
   font-family: "Barlow Semi Condensed", sans-serif;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #1f3756), to(#141539));
-  background-image: linear-gradient(to bottom, #1f3756 30%, #141539 100%);
+  background-image: radial-gradient(circle, #1f3756, #141539);
   color: #3b4363;
   overflow-x: hidden;
 }
@@ -506,8 +513,8 @@ body {
 .open-rules {
   text-align: center;
   max-width: 40.5rem;
-  position: absolute;
-  bottom: 2.5%;
+  position: relative;
+  margin-top: 5.75rem;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);

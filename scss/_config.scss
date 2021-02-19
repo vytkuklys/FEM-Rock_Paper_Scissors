@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,600;1,700&display=swap');
 
 //-----variables
-$Bg-gradient: linear-gradient(to bottom, hsl(214, 47%, 23%) 30%, hsl(237, 49%, 15%) 100%);
+$Bg-gradient: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 $Dark-text: hsl(229, 25%, 31%);
 $Score-text: hsl(229, 64%, 46%);
 $Header-outline: hsl(217, 16%, 45%);
@@ -94,6 +94,12 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
 
 @mixin media-xl{
     @media screen and (min-width: 1340px){
+        @content;
+    }
+}
+
+@mixin media-height-lg{
+    @media screen and (min-width: 1024px) and (min-height: 824px){
         @content;
     }
 }

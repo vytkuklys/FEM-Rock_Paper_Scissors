@@ -46,7 +46,7 @@
         }
     }
     main .select {
-        margin: 10rem auto 1.5rem;
+        margin: 9rem auto 3.5rem;
         justify-content: center;
 
         &__hand {
@@ -77,18 +77,17 @@
         }
     }
     main .open-rules {
-        width: 87.5rem;
+        width: 90rem;
         left: 50%;
         transform: initial;
         text-align: right;
         padding-right: 15%;
 
         .attribution{
-            left: -0;
+            left: 0;
         }
     }
     body .battleground .select {
-        margin-top: 9%;
 
         &--animation {
             @include commonAnimationStyles(ripple, 1.3s);
@@ -157,6 +156,7 @@
             }
         }
     }
+
     html .results .select{
         &__win {
             @include winnerAnimations($top: 16.25rem, $left: -10.25rem);
@@ -215,5 +215,16 @@
 @include media-xl {
     main .open-rules {
         padding-right: 0;
+    }
+}
+
+@include media-height-lg{
+    main .select {
+        margin: 10.5% auto 3.5rem;
+    }
+    body .open-rules {
+        position: absolute;
+        bottom: 1.5%;
+        margin-top: initial;
     }
 }

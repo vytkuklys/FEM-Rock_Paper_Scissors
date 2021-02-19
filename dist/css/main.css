@@ -24,22 +24,13 @@
   }
   main .rules__btn {
     margin: initial;
-    margin-top: 2.5%;
-    margin-left: auto;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  main .open-rules {
-    text-align: right;
-    color: green;
-    margin: 5% 2rem 0 0;
+    margin: 2.5% 0 0 auto;
   }
 }
 
 @media screen and (min-width: 1024px) {
   main .select {
-    margin: 8.5rem auto 1.5rem;
+    margin: 10rem auto 1.5rem;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -61,16 +52,27 @@
     bottom: 1.75rem;
     right: 5.25rem;
   }
+  main .open-rules {
+    width: 87.5rem;
+    left: 50%;
+    -webkit-transform: initial;
+            transform: initial;
+    text-align: right;
+    padding-right: 15%;
+  }
+  main .open-rules .attribution {
+    left: -0;
+  }
   body .battleground .select {
-    margin-top: 10rem;
+    margin-top: 9%;
   }
   body .battleground .select--animation {
     border-radius: 2px;
     position: absolute;
     width: 2px;
     height: 2px;
-    -webkit-animation: ripple 1.5s 2 ease-out;
-            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation: ripple 1.3s 2 ease-out;
+            animation: ripple 1.3s 2 ease-out;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     -webkit-animation-fill-mode: forwards;
@@ -81,8 +83,8 @@
     position: absolute;
     width: 2px;
     height: 2px;
-    -webkit-animation: ripple 1.5s 2 ease-out;
-            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation: ripple 1.3s 2 ease-out;
+            animation: ripple 1.3s 2 ease-out;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     -webkit-animation-fill-mode: forwards;
@@ -95,8 +97,8 @@
     position: absolute;
     width: 2px;
     height: 2px;
-    -webkit-animation: ripple 1.5s 2 ease-out;
-            animation: ripple 1.5s 2 ease-out;
+    -webkit-animation: ripple 1.3s 2 ease-out;
+            animation: ripple 1.3s 2 ease-out;
     -webkit-animation-direction: alternate;
             animation-direction: alternate;
     -webkit-animation-fill-mode: forwards;
@@ -107,8 +109,9 @@
   body .battleground .select__hand {
     width: 16rem;
     height: 16rem;
+    left: -41%;
+    top: 8.25rem;
     border-width: 1.5rem;
-    top: 3.25rem;
     -webkit-transition: -webkit-transform .75s ease-out;
     transition: -webkit-transform .75s ease-out;
     transition: transform .75s ease-out;
@@ -116,41 +119,56 @@
   }
   body .battleground .select__hand__paper.chosen-rock {
     left: -41%;
-    top: 3.25rem;
+    top: 8.25rem;
     border-width: 1.5rem;
   }
   body .battleground .select__hand__paper.chosen-scissors {
     left: -41%;
-    top: 3.25rem;
+    top: 8.25rem;
     border-width: 1.5rem;
   }
   body .battleground .select__hand__paper.chosen-paper {
     display: block;
-    left: -41%;
+  }
+  body .battleground .select__hand__paper::after {
+    font-size: 1.8rem;
+    top: -8rem;
+    left: 2.25rem;
   }
   body .battleground .select__hand__scissors.chosen-rock {
     left: 62.5%;
-    top: 3.25rem;
+    top: 8.25rem;
     border-width: 1.5rem;
   }
   body .battleground .select__hand__scissors.chosen-paper {
     left: 62.5%;
-    top: 3.25rem;
+    top: 8.25rem;
     border-width: 1.5rem;
   }
   body .battleground .select__hand__scissors.chosen-scissors {
     display: block;
     left: 62.5%;
+    top: 8.25rem;
+    border-width: 1.5rem;
   }
   body .battleground .select__hand--shadow {
     left: 70%;
-    top: 4.75rem;
+    top: 9.75rem;
     width: 13rem;
     height: 13rem;
+    -webkit-transition: -webkit-transform .75s ease-out;
+    transition: -webkit-transform .75s ease-out;
+    transition: transform .75s ease-out;
+    transition: transform .75s ease-out, -webkit-transform .75s ease-out;
+  }
+  body .battleground .select__hand--shadow::after {
+    font-size: 1.8rem;
+    top: -8rem;
+    left: -.1rem;
   }
   html .results .select__win {
     z-index: -1;
-    top: 11.25rem;
+    top: 16.25rem;
     left: -10.25rem;
     display: block;
   }
@@ -184,7 +202,7 @@
   }
   html .results .select__lose {
     z-index: -1;
-    top: 11.25rem;
+    top: 16.25rem;
     left: 30.5rem;
     display: block;
   }
@@ -227,18 +245,22 @@
             transform: translateX(10rem);
   }
   html .results .select__hand--shadow {
-    display: none;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
   }
   html .results .select__section {
     -webkit-transition: -webkit-transform 1s ease;
     transition: -webkit-transform 1s ease;
     transition: transform 1s ease;
     transition: transform 1s ease, -webkit-transform 1s ease;
+    margin-top: 9.5rem;
   }
 }
 
-:root {
-  --g: 8rem;
+@media screen and (min-width: 1340px) {
+  main .open-rules {
+    padding-right: 0;
+  }
 }
 
 *,
@@ -258,6 +280,7 @@ body {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #1f3756), to(#141539));
   background-image: linear-gradient(to bottom, #1f3756 30%, #141539 100%);
   color: #3b4363;
+  overflow-x: hidden;
 }
 
 .header {
@@ -319,7 +342,7 @@ body {
   background: url(../images/bg-triangle.svg) no-repeat center center;
   max-width: 20rem;
   min-height: 20rem;
-  margin: 7.5rem auto 3.5rem;
+  margin: 10rem auto 3.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -396,7 +419,6 @@ body {
 }
 
 .rules {
-  background-color: #ffffff;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -404,9 +426,8 @@ body {
   z-index: 10;
   width: 100%;
   padding: 3rem 1rem;
-  background-image: url(../images/image-rules.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url(../images/image-rules.svg) no-repeat center;
+  background-color: #ffffff;
   display: none;
 }
 
@@ -428,7 +449,6 @@ body {
 .rules__title {
   text-transform: uppercase;
   font-size: 2.25rem;
-  font-weight: 700;
   text-align: center;
 }
 
@@ -458,7 +478,12 @@ body {
 
 .open-rules {
   text-align: center;
-  max-width: 87.5rem;
+  max-width: 40.5rem;
+  position: absolute;
+  bottom: 2.5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .open-rules__btn {
@@ -477,6 +502,24 @@ body {
   color: #2a46c0;
 }
 
+.open-rules .attribution {
+  font-size: .7rem;
+  text-align: center;
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  color: #3b4363;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.open-rules .attribution a {
+  color: #3e52a3;
+}
+
 .battleground .select {
   background-image: none;
 }
@@ -486,8 +529,8 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  -webkit-animation: rip 1.25s 2 ease-out;
-          animation: rip 1.25s 2 ease-out;
+  -webkit-animation: rip 1.15s 2 ease-out;
+          animation: rip 1.15s 2 ease-out;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   -webkit-animation-fill-mode: forwards;
@@ -501,8 +544,8 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  -webkit-animation: rip 1.25s 2 ease-out;
-          animation: rip 1.25s 2 ease-out;
+  -webkit-animation: rip 1.15s 2 ease-out;
+          animation: rip 1.15s 2 ease-out;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   -webkit-animation-fill-mode: forwards;
@@ -519,8 +562,8 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  -webkit-animation: rip 1.25s 2 ease-out;
-          animation: rip 1.25s 2 ease-out;
+  -webkit-animation: rip 1.15s 2 ease-out;
+          animation: rip 1.15s 2 ease-out;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
   -webkit-animation-fill-mode: forwards;
@@ -565,6 +608,17 @@ body {
   display: block;
 }
 
+.battleground .select__hand__paper::after {
+  content: 'YOU PICKED';
+  color: #ffffff;
+  z-index: 100;
+  font-size: 1.1rem;
+  position: absolute;
+  white-space: nowrap;
+  top: 10rem;
+  left: 1rem;
+}
+
 .battleground .select__hand__scissors.chosen-rock {
   display: block;
   border: 1rem solid #dd405d;
@@ -595,6 +649,17 @@ body {
 
 .battleground .select__hand__scissors.chosen-scissors {
   display: block;
+}
+
+.battleground .select__hand--shadow::after {
+  content: 'THE HOUSE PICKED';
+  color: #ffffff;
+  z-index: 100;
+  font-size: 1.1rem;
+  position: absolute;
+  white-space: nowrap;
+  top: 10rem;
+  left: -.5rem;
 }
 
 .results .select__win {
@@ -669,7 +734,7 @@ body {
   font-size: 3.5rem;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 6%;
   text-transform: uppercase;
 }
 

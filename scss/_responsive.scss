@@ -18,23 +18,15 @@
 
         &__btn {
             margin: initial;
-            margin-top: 2.5%;
-            margin-left: auto;
+            margin: 2.5% 0 0 auto;
         }
     }
 }
 
-@include media-md {
-    main .open-rules {
-        text-align: right;
-        color: green;
-        margin: 5% 2rem 0 0;
-    }
-}
 
 @include media-lg {
     main .select {
-        margin: 8.5rem auto 1.5rem;
+        margin: 10rem auto 1.5rem;
         justify-content: center;
 
         &__hand {
@@ -58,21 +50,31 @@
             }
         }
     }
-    
+    main .open-rules {
+        width: 87.5rem;
+        left: 50%;
+        transform: initial;
+        text-align: right;
+        padding-right: 15%;
+
+        .attribution{
+            left: -0;
+        }
+    }
     body .battleground .select {
-        margin-top: 10rem;
+        margin-top: 9%;
 
         &--animation {
-            @include commonAnimationStyles(ripple, 1.5s);
+            @include commonAnimationStyles(ripple, 1.3s);
     
             &:before {
-                @include commonAnimationStyles(ripple, 1.5s);
+                @include commonAnimationStyles(ripple, 1.3s);
                 animation-delay: .25s;
 
             }
     
             &:after {
-                @include commonAnimationStyles(ripple, 1.5s);
+                @include commonAnimationStyles(ripple, 1.3s);
                 animation-delay: .5s;
             }
         }
@@ -80,64 +82,63 @@
         &__hand {
             width: 16rem;
             height: 16rem;
-            border-width: 1.5rem;
-            top: 3.25rem;
+            @include positionBorder(-41%);
             transition: transform .75s ease-out;
             // .chosen stylings below are used for the placement of user choices
             &__paper.chosen-rock {
-                left: -41%;
-                top: 3.25rem;
-                border-width: 1.5rem;
-                // transform: translateX(-15rem);
+                @include positionBorder(-41%);
             }
 
             &__paper.chosen-scissors {
-                left: -41%;
-                top: 3.25rem;
-                border-width: 1.5rem;
+                @include positionBorder(-41%);
             }
 
             &__paper.chosen-paper {
                 display: block;
-                left: -41%;
             }
-
+            &__paper::after{
+                font-size: 1.8rem;
+                top: -8rem;
+                left: 2.25rem;
+            }
             // .chosen stylings below are used for the placement of randomly computed choices (enemy)
 
             &__scissors.chosen-rock {
-                left: 62.5%;
-                top: 3.25rem;
-                border-width: 1.5rem;
-
+                @include positionBorder(62.5%);
             }
 
             &__scissors.chosen-paper {
-                left: 62.5%;
-                top: 3.25rem;
-                border-width: 1.5rem;
+                @include positionBorder(62.5%);
 
             }
 
             &__scissors.chosen-scissors {
                 display: block;
-                left: 62.5%;
+                @include positionBorder(62.5%);
             }
             &--shadow {
                 left: 70%;
-                top: 4.75rem;
+                top: 9.75rem;
                 width: 13rem;
                 height: 13rem;
+                transition: transform .75s ease-out;
+                
+                &::after{
+                    font-size: 1.8rem;
+                    top: -8rem;
+                    left: -.1rem;
+                }
             }
         }
     }
     html .results .select{
         &__win {
-            @include winnerAnimations($top: 11.25rem, $left: -10.25rem);
+            @include winnerAnimations($top: 16.25rem, $left: -10.25rem);
             display: block;
         }
     
         &__lose {
-            @include winnerAnimations($top: 11.25rem, $left: 30.5rem);
+            @include winnerAnimations($top: 16.25rem, $left: 30.5rem);
             display: block;
         }
         &__hand{
@@ -175,11 +176,18 @@
 
             }
             &--shadow {
-                display: none;
+                transform: translateX(10rem);
             }
         }
         &__section{
             transition: transform 1s ease;
+            margin-top: 9.5rem;
         }
+    }
+}
+
+@include media-xl {
+    main .open-rules {
+        padding-right: 0;
     }
 }

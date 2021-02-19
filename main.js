@@ -1,26 +1,31 @@
 //------SELECTORS
-const rulesOpen = document.querySelector(".open-rules__btn");
-const rulesClose = document.querySelector(".rules__btn");
+const rulesOpenBtn = document.querySelector(".open-rules__btn");
+const rulesCloseBtn = document.querySelector(".rules__btn");
+const playAgainBtn = document.querySelector(".select__section__btn");
 const main = document.getElementsByTagName("main");
 const selectHand = document.querySelectorAll(".select__hand");
-const playAgainBtn = document.querySelector(".select__section__btn");
 const declareResults = document.querySelector(".select__section__title");
 const changeScore = document.querySelector(".header__score__table");
 const winEffect = document.querySelector(".select--animation");
-
-
 
 //--------CLASSES
 const ROCK = "chosen-rock";
 const PAPER = "chosen-paper";
 const SCISSORS = "chosen-scissors";
 
-//--------VARIABLE
-let score = 0;
+//--------Loading Local Storage
+let score = localStorage.getItem('currentScore');
+if (score) {
+    score = Number(score);
+    // 0 is passed in as an argument to prevent score from changing onload
+    showScore(0);
+} else {
+    score = 0;
+}
 
-
-rulesOpen.addEventListener("click", () => toggleRules());
-rulesClose.addEventListener("click", () => toggleRules());
+//------- EVENT LISTENERS
+rulesOpenBtn.addEventListener("click", () => toggleRules());
+rulesCloseBtn.addEventListener("click", () => toggleRules());
 playAgainBtn.addEventListener("click", () => playAgain());
 
 selectHand.forEach(item => {
@@ -30,6 +35,7 @@ selectHand.forEach(item => {
     });
 });
 
+//-------FUNCTIONS
 function toggleRules() {
     document.querySelector(".rules").classList.toggle('rules--display');
 }
@@ -41,28 +47,28 @@ function playAgain() {
     winEffect.classList.remove(winEffect.classList[1]);
 }
 
-//adds classes to display battleground 
+//adds classes to display battleground after a shape is chosen
 async function openBattlegrounds(chosenShape) {
     //if statement to prevent reload of battleground if battleground is already loaded
-    if (!main[0].className) {
-        let shape = chosenShape.split('__')[2];
-        let enemyShape, scorePoint;
-        main[0].classList.add("battleground");
-        if (shape === "rock") {
-            selectHand[0].classList.add(ROCK);
-        } else if (shape === "paper") {
-            selectHand[0].classList.add(PAPER);
-        } else {
-            selectHand[0].classList.add(SCISSORS);
-        }
-        await sleep(1000);
-        enemyShape = generateEnemyShape();
-        await sleep(200);
-        scorePoint = showResults(shape, enemyShape);
-        showAnimation(scorePoint);
-        await sleep(1000);
-        showScore(scorePoint);
+    if (main[0].className) return;
+    let shape = chosenShape.split('__')[2];
+    let enemyShape, scorePoint;
+    main[0].classList.add("battleground");
+    if (shape === "rock") {
+        selectHand[0].classList.add(ROCK);
+    } else if (shape === "paper") {
+        selectHand[0].classList.add(PAPER);
+    } else {
+        selectHand[0].classList.add(SCISSORS);
     }
+    await sleep(1000);
+    enemyShape = generateEnemyShape();
+    await sleep(200);
+    scorePoint = showResults(shape, enemyShape);
+    await sleep(50);
+    showAnimation(scorePoint);
+    await sleep(1000);
+    showScore(scorePoint);
 }
 
 function generateEnemyShape() {
@@ -98,8 +104,10 @@ function showResults(shape, enemyShape) {
 }
 
 function showScore(scorePoint) {
+    scorePoint = Number(scorePoint);
     score += scorePoint;
     changeScore.innerHTML = score;
+    localStorage.setItem('currentScore', score);
 }
 
 function showAnimation(scorePoint) {

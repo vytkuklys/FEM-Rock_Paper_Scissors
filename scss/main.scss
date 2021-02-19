@@ -1,9 +1,6 @@
 @import '_config.scss';
 @import '_responsive.scss';
 
-:root{
-    --g: 8rem;
-}
 *,
 *::after,
 *::before {
@@ -19,11 +16,10 @@ body {
     font-family: $Font-main;
     background-image: $Bg-gradient;
     color: $Dark-text;
+    overflow-x: hidden;
 }
 
 .header {
-    // min-width: 15rem;
-    // max-width: 15rem;
     width: clamp(15rem, 85vw, 37.5rem);
     padding: .5rem .75em;
     margin: 2.25rem auto 3rem;
@@ -65,12 +61,11 @@ body {
 }
 
 .select {
-    // background-image: url(dist/images/bg-triangle.svg);
     position: relative;
     background: url(../images/bg-triangle.svg) no-repeat center center;
     max-width: 20rem;
     min-height: 20rem;
-    margin: 7.5rem auto 3.5rem;
+    margin: 10rem auto 3.5rem;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -107,7 +102,6 @@ body {
             position: absolute;
             right: .1rem;
             top: -2rem;
-            // background-color: red;
             background-color: #192744;
             width: 7rem;
             height: 7rem;
@@ -129,7 +123,6 @@ body {
 }
 
 .rules {
-    background-color: #ffffff;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -137,9 +130,8 @@ body {
     z-index: 10;
     width: 100%;
     padding: 3rem 1rem;
-    background-image: url(../images/image-rules.svg);
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(../images/image-rules.svg) no-repeat center;
+    background-color: #ffffff;
     display: none;
 
     &--flex {
@@ -153,9 +145,7 @@ body {
     &__title {
         text-transform: uppercase;
         font-size: 2.25rem;
-        font-weight: 700;
         text-align: center;
-        // width: 10rem;
     }
 
     &__btn {
@@ -168,14 +158,11 @@ body {
         transition: transform .35s ease-out;
         opacity: .5;
         cursor: pointer;
-        //add rotateX
 
         &:hover {
             transform: rotate(180deg);
-
         }
     }
-
 }
 
 .rules--display {
@@ -184,7 +171,11 @@ body {
 
 .open-rules {
     text-align: center;
-    max-width: 87.5rem;
+    max-width: 40.5rem;
+    position: absolute;
+    bottom: 2.5%;
+    left: 50%;
+    transform: translateX(-50%);
 
     &__btn {
         padding: .75rem 2.25rem;
@@ -201,18 +192,35 @@ body {
             color: $Score-text;
         }
     }
+    .attribution {
+        font-size: .7rem;
+        text-align: center;
+        position: absolute;
+        top: 4rem;
+        left: 50%;
+        color: $Dark-text;
+        transform: translateX(-50%);
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+    
+      }
 }
 
 .battleground .select {
     background-image: none;
 
     &--animation {
-        @include commonAnimationStyles(rip, 1.25s);
+        @include commonAnimationStyles(rip, 1.15s);
         display: none;
 
         &:before {
             content: '';
-            @include commonAnimationStyles(rip, 1.25s);
+            @include commonAnimationStyles(rip, 1.15s);
             animation-delay: .25s;
             top: 0;
             left: 0;
@@ -220,7 +228,7 @@ body {
 
         &:after {
             content: '';
-            @include commonAnimationStyles(rip, 1.25s);
+            @include commonAnimationStyles(rip, 1.15s);
             animation-delay: .5s;
             top: 0;
             left: 0;
@@ -245,7 +253,16 @@ body {
         &__paper.chosen-paper {
             display: block;
         }
-
+        &__paper::after{
+            content: 'YOU PICKED';
+            color: #ffffff;
+            z-index: 100;
+            font-size: 1.1rem;
+            position: absolute;
+            white-space: nowrap;
+            top: 10rem;
+            left: 1rem;
+        }
         // .chosen stylings below are used for the placement of randomly computed choices (enemy)
 
         &__scissors.chosen-rock {
@@ -266,17 +283,30 @@ body {
         &__scissors.chosen-scissors {
             display: block;
         }
+        &--shadow {
+            &::after{
+                content: 'THE HOUSE PICKED';
+                color: #ffffff;
+                z-index: 100;
+                font-size: 1.1rem;
+                position: absolute;
+                white-space: nowrap;
+                top: 10rem;
+                left: -.5rem;
+            }
+        }
+
     }
 }
 
 .results .select {
     &__win {
-        @include winnerAnimation($top: 1.55rem, $left: 3.375rem);
+        @include winnerAnimationMobile($top: 1.55rem, $left: 3.375rem);
         display: block;
     }
 
     &__lose {
-        @include winnerAnimation($top: 1.55rem, $left: 16.25rem);
+        @include winnerAnimationMobile($top: 1.55rem, $left: 16.25rem);
         display: block;
     }
 
@@ -288,7 +318,7 @@ body {
             font-size: 3.5rem;
             color: #ffffff;
             text-align: center;
-            margin-bottom: 5%;
+            margin-bottom: 6%;
             text-transform: uppercase;
         }
 

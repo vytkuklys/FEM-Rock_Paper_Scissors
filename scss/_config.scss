@@ -34,7 +34,7 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
     animation-fill-mode: forwards;
 }
 
-@mixin winnerAnimation($top, $left){
+@mixin winnerAnimationMobile($top, $left){
     z-index: -1;
     top: $top;
     left: $left;
@@ -74,21 +74,25 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
           }
     }
 }
-
+@mixin positionBorder($left){
+    left: $left;
+    top: 8.25rem;
+    border-width: 1.5rem;
+}
 @mixin media-s{
     @media screen and (min-width: 450px){
         @content;
     }
 }
 
-@mixin media-md{
-    @media screen and (min-width: 768px){
-        @content;
-    }
-}
 @mixin media-lg{
     @media screen and (min-width: 1024px){
         @content;
     }
 }
 
+@mixin media-xl{
+    @media screen and (min-width: 1340px){
+        @content;
+    }
+}

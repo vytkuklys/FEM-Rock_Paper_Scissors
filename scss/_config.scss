@@ -24,6 +24,7 @@ $Font-main: 'Barlow Semi Condensed', sans-serif;
     background-position: center;
     z-index: 4;
 }
+
 @mixin commonAnimationStyles($name, $duration){
     border-radius: 2px;
     position: absolute;

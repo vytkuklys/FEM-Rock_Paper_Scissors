@@ -29,6 +29,24 @@
 }
 
 @media screen and (min-width: 1024px) {
+  body .header {
+    padding: .75rem 1.25rem;
+  }
+  body .header__logo {
+    padding: 0 .75rem 0 0;
+  }
+  body .header__logo img {
+    width: 100%;
+  }
+  body .header__score {
+    min-height: 7rem;
+    min-width: 8.5rem;
+  }
+  body .header__score__table {
+    font-size: 4.25rem;
+    line-height: .75;
+    padding-top: .35rem;
+  }
   main .select {
     margin: 10rem auto 1.5rem;
     -webkit-box-pack: center;
@@ -36,21 +54,21 @@
             justify-content: center;
   }
   main .select__hand {
-    width: 10rem;
-    height: 10rem;
-    background-size: 42.5%;
+    width: 11.5rem;
+    height: 11.5rem;
+    background-size: 45%;
   }
   main .select__hand__paper {
-    left: -10%;
-    top: -3.5rem;
+    left: -20%;
+    top: -4rem;
   }
   main .select__hand__scissors {
-    right: -10%;
-    top: -3.5rem;
+    right: -20%;
+    top: -4rem;
   }
   main .select__hand__rock {
-    bottom: 1.75rem;
-    right: 5.25rem;
+    bottom: -1.25rem;
+    right: 4.4rem;
   }
   main .open-rules {
     width: 87.5rem;
@@ -285,8 +303,8 @@ body {
 
 .header {
   width: clamp(15rem, 85vw, 37.5rem);
-  padding: .5rem .75em;
-  margin: 2.25rem auto 3rem;
+  padding: .5rem 1.25rem;
+  margin: 2.5rem auto 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -297,7 +315,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border: 0.19rem solid #606e85;
-  border-radius: .25rem;
+  border-radius: 1rem;
 }
 
 .header__logo {
@@ -306,21 +324,21 @@ body {
 
 .header__logo img {
   width: 80%;
+  vertical-align: middle;
 }
 
 .header__score {
   min-height: 6rem;
   min-width: 7.25rem;
   background-color: #ffffff;
-  border-radius: .25rem;
-  padding-top: .75rem;
+  border-radius: .5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-left: auto;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -329,11 +347,12 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   text-transform: uppercase;
+  letter-spacing: .2rem;
   color: #3b4363;
 }
 
 .header__score__table {
-  font-size: 3.5rem;
+  font-size: 3.75rem;
   line-height: .75;
 }
 
@@ -491,6 +510,7 @@ body {
   background-color: transparent;
   color: #e4e4e4;
   font-weight: 600;
+  font-size: 1rem;
   border: .125rem solid #e4e4e4a4;
   text-transform: uppercase;
   border-radius: .5rem;

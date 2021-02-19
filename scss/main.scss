@@ -56,7 +56,6 @@ body {
         &__table {
             font-size: 3.75rem;
             line-height: .75;
-            // padding-top: .35rem;
         }
     }
 
@@ -265,6 +264,7 @@ body {
             white-space: nowrap;
             top: 10rem;
             left: 1rem;
+            font-family: $Font-main;
         }
         // .chosen stylings below are used for the placement of randomly computed choices (enemy)
 

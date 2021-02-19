@@ -44,7 +44,6 @@
   }
   body .header__score__table {
     font-size: 4.25rem;
-    line-height: .75;
     padding-top: .35rem;
   }
   main .select {
@@ -151,7 +150,7 @@
   body .battleground .select__hand__paper::after {
     font-size: 1.8rem;
     top: -8rem;
-    left: 2.25rem;
+    left: 2rem;
   }
   body .battleground .select__hand__scissors.chosen-rock {
     left: 62.5%;
@@ -182,7 +181,7 @@
   body .battleground .select__hand--shadow::after {
     font-size: 1.8rem;
     top: -8rem;
-    left: -.1rem;
+    left: 0;
   }
   html .results .select__win {
     z-index: -1;
@@ -637,6 +636,7 @@ body {
   white-space: nowrap;
   top: 10rem;
   left: 1rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
 }
 
 .battleground .select__hand__scissors.chosen-rock {
